@@ -9,7 +9,7 @@ const Homelayout = ({ children }) => {
         <Sidebar />
       </div>
       <Header />
-      {children}
+      <div className="ml-64 p-5 ">{children}</div>
     </div>
   );
 };

@@ -41,7 +41,11 @@ const Sidebar = () => {
         {menuList.map((item, index) => (
           <div
             className={`flex gap-2 items-center p-4 px-6 text-gray-500 hover:bg-gray-100 cursor-pointer
-              ${activeIndex == index ? "bg-purple-50 text-purple-800" : null}`}
+              ${
+                activeIndex == index
+                  ? "bg-purple-200 text-purple-800 font-semibold"
+                  : null
+              }`}
             onClick={() => setActiveIndex(index)}
           >
             <item.icon />
