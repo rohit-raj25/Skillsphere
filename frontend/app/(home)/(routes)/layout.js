@@ -1,6 +1,6 @@
 import React from "react";
-import Sidebar from "./../_components/Sidebar";
-import Header from "./../_components/Header";
+import Sidebar from "../_components/Sidebar";
+import Header from "../_components/Header";
 
 const Homelayout = ({ children }) => {
   return (
