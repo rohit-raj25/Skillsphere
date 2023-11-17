@@ -16,7 +16,7 @@ const CategoryFilter = () => {
     },
     {
       id: 3,
-      name: "Next ja   ",
+      name: "Next js  ",
       value: "nextjs",
     },
     {

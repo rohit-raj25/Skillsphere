@@ -1,5 +1,5 @@
 import React from "react";
-import CategoryFilter from "./../../_components/CategoryFilter";
+import CategoryFilter from "../../_components/CategoryFilter";
 
 const Browse = () => {
   return (
