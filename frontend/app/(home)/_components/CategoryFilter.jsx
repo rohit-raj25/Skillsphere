@@ -30,6 +30,11 @@ const CategoryFilter = () => {
       name: "Firebase",
       value: "firebase",
     },
+    {
+      id: 6,
+      name: "Add Course",
+      value: "add course",
+    },
   ];
   return (
     <div className="flex gap-5">

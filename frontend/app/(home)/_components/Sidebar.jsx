@@ -1,9 +1,24 @@
 "use client";
-import { Search, Shield, Layout, Mail } from "lucide-react";
+import {
+  Search,
+  Shield,
+  Layout,
+  Mail,
+  Video,
+  CalendarDays,
+} from "lucide-react";
 import Image from "next/image";
+import { UserButton, useUser } from "@clerk/clerk-react";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const Sidebar = () => {
+  const { user } = useUser();
+  const router = useRouter();
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
   const menuList = [
     {
       id: 1,
@@ -19,15 +34,27 @@ const Sidebar = () => {
     },
     {
       id: 3,
-      name: "Upgrade",
+      name: "Student",
       icon: Shield,
-      path: "/upgrade",
+      path: "/student",
     },
     {
       id: 4,
-      name: "NewsLetter",
+      name: "Mailbox",
       icon: Mail,
       path: "/newsletter ",
+    },
+    {
+      id: 5,
+      name: "Calender",
+      icon: CalendarDays,
+      path: "/calender ",
+    },
+    {
+      id: 6,
+      name: "Recordings",
+      icon: Video,
+      path: "/recording ",
     },
   ];
 
@@ -52,6 +79,16 @@ const Sidebar = () => {
             <h2>{item.name}</h2>
           </div>
         ))}
+      </div>
+      <div className="p-5">
+        {!user ? (
+          <button onClick={() => router.push("./sign-in")}>Login</button>
+        ) : (
+          <div className="flex gap-4 fixed">
+            <UserButton />
+            <h3 className="font-bold text-xl">{user.fullName}</h3>
+          </div>
+        )}
       </div>
     </div>
   );
