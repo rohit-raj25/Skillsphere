@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import AddCourse from "./AddCourse";
 
 const CategoryFilter = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -30,28 +31,26 @@ const CategoryFilter = () => {
       name: "Firebase",
       value: "firebase",
     },
-    {
-      id: 6,
-      name: "Add Course",
-      value: "add course",
-    },
   ];
   return (
-    <div className="flex gap-5">
-      {filterOptions.map((item, index) => (
-        <button
-          key={index}
-          onClick={() => setActiveIndex(index)}
-          className={`border p-2 px-4 text-sm rounded-md hover:border-purple-800 hover:bg-purple-300 font-semibold
+    <div className="flex gap-x-96">
+      <div className="flex gap-5">
+        {filterOptions.map((item, index) => (
+          <button
+            key={index}
+            onClick={() => setActiveIndex(index)}
+            className={`border p-2 px-4 text-sm rounded-md hover:border-purple-800 hover:bg-purple-300 font-semibold
           ${
             activeIndex == index
               ? "border-purple-800 bg-purple-200 text-purple-800"
               : null
           }`}
-        >
-          <h2>{item.name}</h2>
-        </button>
-      ))}
+          >
+            <h2>{item.name}</h2>
+          </button>
+        ))}
+      </div>
+      <AddCourse />
     </div>
   );
 };
