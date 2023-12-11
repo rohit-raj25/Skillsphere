@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import { Anchor } from "lucide-react";
 import { UserButton, useUser } from "@clerk/clerk-react";
-import { useEffect } from "react";
+
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -19,9 +19,9 @@ const Sidebar = () => {
   const router = useRouter();
 
   const [expanded, setExpanded] = useState(true);
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
+  // useEffect(() => {
+  //   console.log(user);
+  // }, [user]);
   const menuList = [
     {
       id: 1,
@@ -68,15 +68,18 @@ const Sidebar = () => {
         <Image
           src="/homelogo.png"
           alt="logo"
-          width={170}
+          width={150}
           height={100}
+          priority
           className={`overflow-hidden transition-all ${
-            expanded ? "" : "w-0 h-0"
+            expanded ? "" : "w-5 h-5  "
           }`}
         />
         <Anchor
           onClick={() => setExpanded((curr) => !curr)}
-          className="cursor-pointer"
+          className={`${
+            expanded ? "cursor-pointer  ml-7" : "cursor-pointer text-gray-500  "
+          }`}
         />
       </div>
       <div className="flex flex-col">
@@ -89,28 +92,27 @@ const Sidebar = () => {
                   : null
               }`}
             onClick={() => setActiveIndex(index)}
+            key={index}
           >
             <item.icon />
             <h2
               className={`overflow-hidden transition-all ${
-                expanded ? "w-52 ml-2" : "w-0"
+                expanded ? "w-40 ml-0" : "w-0"
               }`}
             >
               {item.name}
             </h2>
-            {activeIndex == index
-              ? alert && (
-                  <div
-                    className={`absolute right-2 w-2 h-2 rounded bg-purple-800 ${
-                      expanded ? "" : "w-0 "
-                    }`}
-                  />
-                )
-              : null}
+            {activeIndex == index ? (
+              <div
+                className={`absolute right-2 w-3 h-3 rounded-xl bg-purple-800 ${
+                  expanded ? "" : "w-0  mb-7 "
+                }`}
+              />
+            ) : null}
           </div>
         ))}
       </div>
-      <div className="p-5">
+      <div className="p-5 ">
         {!user ? (
           <button onClick={() => router.push("./sign-in")}>Login</button>
         ) : (

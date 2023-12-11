@@ -8,9 +8,9 @@ import { useRouter } from "next/navigation";
 const Header = () => {
   const { user } = useUser();
   const router = useRouter();
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
+  // useEffect(() => {
+  //   console.log(user);
+  // }, [user]);
   return (
     <div className="ml-64 border-b p-4 flex items-center justify-between">
       <SearchBar />
