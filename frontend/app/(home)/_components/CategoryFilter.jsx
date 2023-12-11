@@ -33,7 +33,7 @@ const CategoryFilter = () => {
     },
   ];
   return (
-    <div className="flex gap-x-96">
+    <div className="flex gap-x-96 p-2">
       <div className="flex gap-5">
         {filterOptions.map((item, index) => (
           <button

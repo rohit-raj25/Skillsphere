@@ -23,7 +23,7 @@ const courseSchema = new mongoose.Schema({
   },
   banner: {
     type: String,
-    required: true,
+    required: false,
   },
   totalChapters: {
     type: Number,

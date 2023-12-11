@@ -1,11 +1,15 @@
 import express from "express";
+import multer from "multer";
 import { Course } from "../models/courseModel.js";
 const router = express.Router();
 
+const upload = multer({ dest: "images/" });
+
 //Route to create course
-router.post("/", async (req, res) => {
+router.post("/", upload.single("thumbnail"), async (req, res) => {
   try {
-    const newCourse = await Course.create(req.body);
+    console.log(req.body);
+    const newCourse = await Course.create(req.body.courseInfo);
     res.status(201).send(newCourse);
   } catch (error) {
     res.status(500).send({ error: error.message });
